@@ -4,21 +4,33 @@
     {
         static void Main(string[] args)
         {
-            Student student1 = new Student("Akhil", "akhil@usf.edu", "S001", "Business Analytics", 2026);
-            Student student2 = new Student("Sandeep", "sandeep@usf.edu", "S002", "Information Systems", 2025);
+            Library usfLibrary = new Library();
+            Student student1 = new Student("Rohit", "rohit@usf.edu", "S001", "Business Analytics", 2026);
+            Student student2 = new Student("mandy", "mandy@usf.edu", "S002", "Information Systems", 2025);
 
-            student1.DisplayInfo();
-            student2.DisplayInfo();
+            Staff staff1 = new Staff("brandon singh", "bransingh@usf.edu", "ST001", "Librarian", "Library Services");
 
-             // Creating staff
-            Staff staff1 = new Staff("Grandon Gill", "grandon@usf.edu", "ST001", "Librarian", "Library Services");
-            staff1.DisplayInfo();
+            Book book1 = new Book("Distributed System", "Liam Reynolds", "ISBN111", 4);
+            Book book2 = new Book("Business Insights", "Olivia Carter", "ISBN222", 3);
+            Book book3 = new Book("Analytics in AI", "Nathan Brooks", "ISBN333", 6);
 
-            Book book1 = new Book("The Art of Data Strategy", "Liam Reynolds", "ISBN111", 4);
-            Book book2 = new Book("Business Insights with AI", "Olivia Carter", "ISBN222", 3);
-            Book book3 = new Book("Analytics in Action", "Nathan Brooks", "ISBN333", 6);
+            usfLibrary.AddBook(book1);
+            usfLibrary.AddBook(book2);
+            usfLibrary.AddBook(book3);
 
-            book1.DisplayBookInfo();
+            usfLibrary.AddPatron(student1);
+            usfLibrary.AddPatron(student2);
+            usfLibrary.AddPatron(staff1);
+
+            usfLibrary.DisplayBooks();
+            usfLibrary.DisplayPatrons();
+
+            Console.WriteLine("\nBorrowing Books...");
+            usfLibrary.BorrowBook("Business Insights", "mandy");
+            usfLibrary.BorrowBook("Analytics in AI", "rohit");
+
+            Console.WriteLine("\nBooks after borrowing:");
+            usfLibrary.DisplayBooks();
 
         }
     }
