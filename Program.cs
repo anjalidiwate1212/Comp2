@@ -9,6 +9,11 @@
 
             student1.DisplayInfo();
             student2.DisplayInfo();
+
+             // Creating staff
+            Staff staff1 = new Staff("Grandon Gill", "grandon@usf.edu", "ST001", "Librarian", "Library Services");
+            staff1.DisplayInfo();
+
         }
     }
 }
